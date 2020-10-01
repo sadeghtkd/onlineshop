@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "526476287710",
+    "firebase_url": "https://testshop-31c35.firebaseio.com",
+    "project_id": "testshop-31c35",
+    "storage_bucket": "testshop-31c35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526476287710:android:11b99262e005d161b8ec4f",
+        "android_client_info": {
+          "package_name": "ghanbari.sadegh.newshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526476287710-t7oqvsvh1l3mcth4cup84098i0ane0mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS9UNoL-X9c8zln_9yVeN8tD6Qxj6B374"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526476287710-t7oqvsvh1l3mcth4cup84098i0ane0mu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#ad1457</color>
+    <color name="colorPrimaryDark">#78002e</color>
+    <color name="colorAccent">#e35183</color>
+    <color name="gradient1">#D4EAFF</color>
+    <color name="gradient2">#0C7DE9</color>
+    <color name="blue">#00f</color>
+    <color name="tvInfoColor">#4527A0</color>
+    <color name="colorConnection">#aaffffff</color>
+</resources>
