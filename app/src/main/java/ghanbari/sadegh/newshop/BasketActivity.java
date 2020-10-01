@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -27,6 +28,7 @@ import retrofit2.Response;
 public class BasketActivity extends AppCompatActivity implements BasketFragment.OnBasketListInteractionListener {
 
     ProgressBar progressBar;
+    TextView tvTotalPrice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,7 @@ public class BasketActivity extends AppCompatActivity implements BasketFragment.
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        tvTotalPrice = findViewById(R.id.tvTotalPrice);
         progressBar = findViewById(R.id.progressBar3);
         findViewById(R.id.btnSaveOrder).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,5 +102,9 @@ public class BasketActivity extends AppCompatActivity implements BasketFragment.
     @Override
     public void onListFragmentInteraction(Basket item) {
 
+    }
+
+    public void setTotalPrice(String totalPrice){
+        tvTotalPrice.setText(totalPrice);
     }
 }

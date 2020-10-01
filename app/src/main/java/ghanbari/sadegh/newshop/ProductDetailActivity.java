@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 import ghanbari.sadegh.newshop.database.AppDatabase;
 import ghanbari.sadegh.newshop.database.Basket;
@@ -63,12 +64,19 @@ public class ProductDetailActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             AppDatabase db = AppDatabase.getInstance(ProductDetailActivity.this);
-            Basket basket = new Basket();
-            basket.productId = myProduct.getObjectId();
-            basket.userId = new Settings(ProductDetailActivity.this).GetLoginInfo();
-            basket.count = 1;
-            db.basketDAO().insert(basket);
+            List<Basket> existItems = db.basketDAO().getBasketByProduct(myProduct.getObjectId());
+            if( existItems.size() == 0) {
 
+                Basket basket = new Basket();
+                basket.productId = myProduct.getObjectId();
+                basket.userId = new Settings(ProductDetailActivity.this).GetLoginInfo();
+                basket.count = 1;
+                db.basketDAO().insert(basket);
+            }else{
+                //کالا در سبد وجود داشته و به تعداد آن یکی افزوده شود
+                existItems.get(0).count++;
+                db.basketDAO().update(existItems.get(0));
+            }
             return null;
         }
 

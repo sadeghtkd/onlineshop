@@ -149,16 +149,28 @@ public class BasketFragment extends Fragment {
             ids = ids.substring(0,ids.length() - 1);
             Call<ProductResult> call = service.getProductsByIds("{\"objectId\": {\"$in\":["+ids+"]} }");
 
+
             call.enqueue(new Callback<ProductResult>() {
                 @Override
                 public void onResponse(Call<ProductResult> call, Response<ProductResult> response) {
                     List<Product> listItem = response.body().getProducts() ; // data returned from server
                     int i = 0;
+                    int totalPrice = 0;
+
                     for (Product p:listItem ) {
-                        basketList.get(i).product = p;
-                        i++;
+                        //basketList.get(i).product = p;
+                        for (Basket b : basketList){
+                            if(b.productId.equals( p.getObjectId())) {
+                                b.product = p;
+                                totalPrice += p.getPrice() * basketList.get(i).count;
+                            }
+                        }
+
+                        //i++;
                     }
                     recyclerView.setAdapter(new MyBasketRecyclerViewAdapter(getActivity(), basketList, mListener));
+                    if(getActivity() instanceof BasketActivity)
+                        ((BasketActivity)getActivity()).setTotalPrice(String.valueOf(totalPrice));
                 }
 
                 @Override

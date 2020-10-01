@@ -23,4 +23,7 @@ public interface BasketDAO {
 
     @Delete
     void delete(Basket myBasket);
+
+    @Query("SELECT * FROM basket WHERE productId = :productId " )
+    List<Basket> getBasketByProduct(String productId);
 }
